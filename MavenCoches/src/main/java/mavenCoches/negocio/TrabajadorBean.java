@@ -47,8 +47,23 @@ public class TrabajadorBean {
 	@JoinColumn(name="FK_concesionario")
 	private ConcesionarioBean concesionario;
 
-
 	
+	@ManyToOne
+	@JoinColumn(name="FK_categoria")
+	private CategoriaBean categoria;
+	
+	
+	
+	public CategoriaBean getCategoria() {
+		return categoria;
+	}
+
+
+	public void setCategoria(CategoriaBean categoria) {
+		this.categoria = categoria;
+	}
+
+
 	public long getIdTrabajador() {
 		return idTrabajador;
 	}

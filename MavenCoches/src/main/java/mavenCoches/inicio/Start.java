@@ -1,9 +1,11 @@
 package mavenCoches.inicio;
 
+import mavenCoches.modelo.categoria.CreateCategoria;
 import mavenCoches.modelo.coche.CreateCoche;
 import mavenCoches.modelo.concesionario.CreateConcesionario;
 import mavenCoches.modelo.reparacion.CreateReparacion;
 import mavenCoches.modelo.trabajador.CreateTrabajador;
+import mavenCoches.negocio.CategoriaBean;
 import mavenCoches.negocio.CocheBean;
 import mavenCoches.negocio.ConcesionarioBean;
 import mavenCoches.negocio.ReparacionBean;
@@ -47,11 +49,16 @@ public class Start {
 		reparacion1.setDescripcion("Pinchazo de ruedas");
 		reparacion1.setPresupuesto(200);
 		
+		CategoriaBean gerente = new CategoriaBean();
+		gerente.setNombre("Gerente");
+		gerente.setPlus(500);
+		
 		
 		concesionario1.addCoches(ford);
 		concesionario1.addTrabajador(pepe);
 		concesionario1.addReparacion(reparacion1);
 		
+		gerente.addTrabajador(pepe);
 		
 		
 		CreateConcesionario createConcesionario = new CreateConcesionario();
@@ -60,11 +67,15 @@ public class Start {
 		CreateCoche createCoche = new CreateCoche();
 		createCoche.create(ford);
 		
+		CreateCategoria createCategoria = new CreateCategoria();
+		createCategoria.create(gerente);
+		
 		CreateTrabajador createTrabajador = new CreateTrabajador();
 		createTrabajador.create(pepe);
 		
 		CreateReparacion createReparacion = new CreateReparacion();
 		createReparacion.create(reparacion1);
+		
 		
 		
 		
